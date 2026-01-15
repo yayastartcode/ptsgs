@@ -1,11 +1,11 @@
-import { useState, useEffect, useCallback } from 'react';
+import { useState, useEffect, useCallback } from "react";
 
 const Gallery = () => {
   const mediaItems = [
     "/images/sck1.jpeg",
     "/images/sck2.jpeg",
-    "/images/629315350_f47459f5-25cc-4992-9585-b750ec8c5ead.jpeg",
-    "/images/685415368_08200dba-19da-44e3-8af7-d4235563a97d.jpeg",
+    "/images/cp10.jpeg",
+    "/images/cp810.jpeg",
     "/images/sck3.mp4",
     "/images/sck4.mp4",
   ];
@@ -31,7 +31,7 @@ const Gallery = () => {
   }, [mediaItems.length]);
 
   const prevItem = useCallback(() => {
-    setCurrentIndex((prevIndex) => 
+    setCurrentIndex((prevIndex) =>
       prevIndex === 0 ? mediaItems.length - 1 : prevIndex - 1
     );
   }, [mediaItems.length]);
@@ -39,14 +39,14 @@ const Gallery = () => {
   useEffect(() => {
     const handleKeyDown = (e) => {
       if (!lightboxOpen) return;
-      
-      if (e.key === 'Escape') closeLightbox();
-      if (e.key === 'ArrowRight') nextItem();
-      if (e.key === 'ArrowLeft') prevItem();
+
+      if (e.key === "Escape") closeLightbox();
+      if (e.key === "ArrowRight") nextItem();
+      if (e.key === "ArrowLeft") prevItem();
     };
 
-    window.addEventListener('keydown', handleKeyDown);
-    return () => window.removeEventListener('keydown', handleKeyDown);
+    window.addEventListener("keydown", handleKeyDown);
+    return () => window.removeEventListener("keydown", handleKeyDown);
   }, [lightboxOpen, closeLightbox, nextItem, prevItem]);
 
   return (
@@ -60,13 +60,13 @@ const Gallery = () => {
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {mediaItems.map((item, index) => (
-            <div 
+            <div
               key={index}
               className="group relative overflow-hidden rounded-lg shadow-lg hover:shadow-2xl transition-shadow duration-300 cursor-pointer"
               onClick={() => openLightbox(index)}
             >
               {isVideo(item) ? (
-                <video 
+                <video
                   src={item}
                   className="w-full h-64 object-cover"
                   muted
@@ -80,8 +80,8 @@ const Gallery = () => {
                   }}
                 />
               ) : (
-                <img 
-                  src={item} 
+                <img
+                  src={item}
                   alt={`Gallery ${index + 1}`}
                   className="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-300"
                   loading="lazy"
@@ -89,7 +89,7 @@ const Gallery = () => {
               )}
               <div className="absolute  bg-opacity-0 group-hover:bg-opacity-20 transition-all duration-300 flex items-center justify-center">
                 <span className="text-white text-4xl opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                  {isVideo(item) ? '▶' : '🔍'}
+                  {isVideo(item) ? "▶" : "🔍"}
                 </span>
               </div>
             </div>
@@ -98,45 +98,51 @@ const Gallery = () => {
       </div>
 
       {lightboxOpen && (
-        <div 
+        <div
           className="fixed inset-0 bg-black bg-opacity-90 z-50 flex items-center justify-center p-4"
           onClick={closeLightbox}
         >
-          <button 
+          <button
             className="absolute top-4 right-4 text-white text-4xl hover:text-gray-300 z-10"
             onClick={closeLightbox}
           >
             ×
           </button>
-          
-          <button 
+
+          <button
             className="absolute left-4 top-1/2 -translate-y-1/2 text-white text-4xl hover:text-gray-300 bg-black bg-opacity-50 rounded-full w-12 h-12 flex items-center justify-center"
-            onClick={(e) => { e.stopPropagation(); prevItem(); }}
+            onClick={(e) => {
+              e.stopPropagation();
+              prevItem();
+            }}
           >
             ‹
           </button>
-          
-          <button 
+
+          <button
             className="absolute right-4 top-1/2 -translate-y-1/2 text-white text-4xl hover:text-gray-300 bg-black bg-opacity-50 rounded-full w-12 h-12 flex items-center justify-center"
-            onClick={(e) => { e.stopPropagation(); nextItem(); }}
+            onClick={(e) => {
+              e.stopPropagation();
+              nextItem();
+            }}
           >
             ›
           </button>
 
-          <div 
+          <div
             className="max-w-6xl max-h-[90vh] w-full flex items-center justify-center"
             onClick={(e) => e.stopPropagation()}
           >
             {isVideo(mediaItems[currentIndex]) ? (
-              <video 
+              <video
                 src={mediaItems[currentIndex]}
                 controls
                 autoPlay
                 className="max-w-full max-h-[90vh] object-contain"
               />
             ) : (
-              <img 
-                src={mediaItems[currentIndex]} 
+              <img
+                src={mediaItems[currentIndex]}
                 alt={`Gallery ${currentIndex + 1}`}
                 className="max-w-full max-h-[90vh] object-contain"
               />

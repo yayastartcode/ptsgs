@@ -14,6 +14,16 @@
   --font-sans: 'Exo 2', ui-sans-serif, system-ui, sans-serif;
 }
 
+/* Hero Background Animation */
+@keyframes hero-zoom {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.08); }
+}
+
+.animate-hero-zoom {
+  animation: hero-zoom 12s ease-in-out infinite;
+}
+
 /* Base Styles */
 body {
   font-family: 'Exo 2', ui-sans-serif, system-ui, sans-serif;

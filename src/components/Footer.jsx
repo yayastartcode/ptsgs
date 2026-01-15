@@ -17,7 +17,7 @@ const Footer = () => {
           <div className="text-center lg:text-left">
             <img 
               src="/images/sclg.png" 
-              alt="PT Surya Citra Kencana"
+              alt="PT Singosari Gulden Sejahtera"
               className="h-24 sm:h-28 lg:h-32 w-auto object-contain mx-auto lg:mx-0 mb-4 drop-shadow-[0_0_3px_#fff]"
             />
           </div>
@@ -48,7 +48,7 @@ const Footer = () => {
                 <svg className="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20">
                   <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z" />
                 </svg>
-                <a href="tel:+6285178162564" className="hover:text-primary-light">+62 851-7816-2564</a>
+                <a href="tel:+62881010718595" className="hover:text-primary-light">+62 881-0107-18595</a>
               </li>
              
             </ul>
@@ -85,7 +85,7 @@ const Footer = () => {
         {/* Copyright */}
         <div className="border-t border-gray-700 pt-8 text-center">
           <p className="text-gray-400">
-            © {new Date().getFullYear()} PT Surya Citra Kencana. All rights reserved.
+            © {new Date().getFullYear()} PT Singosari Gulden Sejahtera. All rights reserved.
           </p>
         </div>
       </div>
