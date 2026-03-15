@@ -3,13 +3,7 @@ const Footer = () => {
     <footer id="kontak" className="bg-gray-900 text-white py-12">
       <div className="container mx-auto px-4">
         {/* Top Section with Image */}
-        <div className="mb-12">
-          <img
-            src="/images/bawah12.png"
-            alt="Footer Banner"
-            className="w-full"
-          />
-        </div>
+
 
         {/* Main Footer Content */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-8">
